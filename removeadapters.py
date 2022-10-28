@@ -12,12 +12,3 @@ for eachline in my_file :
     new_file.write(adapterfree + '\n')
 
 new_file.close()
-#    print('We are processing line {} of the file'.format(count))
-#    print(f'There are {line_length} characters on the line')
-
-
-#for colour_item in somecolours4 :
-#    myfile = open(colour_item + '.txt', 'w')
-#    myfile.write(str(len(colour_item)) + '\n')
-#    myfile.close()
-#    f'{colour_item[0:3].upper()}'
