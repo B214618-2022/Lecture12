@@ -13,3 +13,11 @@ for x in seqlist:
 
 newseq = ''.join(sequence)
 
+
+window = 30
+offset = 3
+seq_len = len(newseq)
+
+
+print(newseq[0+3:30+3])
+print(len(newseq[0+3:30+3]))
