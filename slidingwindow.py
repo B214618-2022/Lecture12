@@ -11,13 +11,27 @@ for x in seqlist:
     if not x.startswith(">"):
         sequence.append(x)
 
-newseq = ''.join(sequence)
-
+new_seq = ''.join(sequence)
 
 window = 30
 offset = 3
-seq_len = len(newseq)
+seq_len = len(new_seq)
+start_point = 0
+end_point = window
+kmer_id = 1
 
+kmerfile = open("kmers.txt", "w")
 
-print(newseq[0+3:30+3])
-print(len(newseq[0+3:30+3]))
+while start_point < len(new_seq):
+    kmer = new_seq[start_point:end_point]
+    kmer_len = len(kmer)
+    content_g = kmer.upper().count('G')
+    content_c = kmer.upper().count('C')
+    gc_proportion = round((content_g + content_c) / kmer_len, 2)
+    header = ">" + "kmer " + str(kmer_id) + ", GC content - " + str(gc_proportion)
+    kmerfile.write(header + "\n" + kmer + "\n")
+    start_point = start_point + offset
+    end_point = end_point + offset
+    kmer_id = kmer_id + 1
+
+kmerfile.close()
